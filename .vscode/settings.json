@@ -1,0 +1,9 @@
+{
+    "editor.formatOnSave": true,
+    "stylelint.enable": true,
+    "stylelint.validate": ["css", "less", "scss", "sass", "html", "vue"],
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": true
+    }
+  }
+  
