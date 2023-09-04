@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 // 引入svg
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import { viteMockServe } from 'vite-plugin-mock'
 
 // https://vitejs.dev/config/
 export default ({ command, mode }: ConfigEnv): UserConfigExport => {
@@ -30,7 +31,30 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
         iconDirs: [path.resolve(currentDir, iconDir)],
         symbolId: 'icon-[dir]-[name]',
       }),
+      viteMockServe({
+        enable: command === 'serve',
+        mockPath: 'mock', // default
+      }),
     ],
-    // resolve: { alias: { '@': path.resolve('./src') } },
+    // scss 全局变量配置
+    css: {
+      preprocessorOptions: {
+        scss: {
+          javascriptEnabled: true,
+          additionalData: '@import "./src/styles/variables.scss";', // NB: ";" in the tail
+        },
+      },
+    },
+    // 代理跨域
+    // server: {
+    //   proxy: {
+    //     [env.VITE_APP_BASE_API]: {
+    //       target: env.VITE_SERVE,
+    //       // 需要代理跨域
+    //       changeOrigin: true,
+    //       rewrite: (path) => path.replace(/^\/api/, ''),
+    //     },
+    //   },
+    // },
   }
 }
