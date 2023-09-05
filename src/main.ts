@@ -7,6 +7,8 @@ import 'element-plus/dist/index.css'
 import 'virtual:svg-icons-register'
 import globalComponentRegisterPlugin from './components'
 import '@/styles/index.scss'
+import router from './router'
+import pinia from './store'
 
 const app = createApp(App)
 
@@ -14,7 +16,11 @@ app.use(ElementPlus, {
   locale: zhCn,
 })
 
-app.use(globalComponentRegisterPlugin)
+app.use(globalComponentRegisterPlugin) // register all global component by using our customized plugin
+
+app.use(router) // register our router
+
+app.use(pinia)
 
 app.mount('#app')
 

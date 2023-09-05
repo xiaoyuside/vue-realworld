@@ -22,6 +22,7 @@ onMounted(() => {
   <div class="box">
     <Hello />
     <h2>test sass</h2>
+    <router-view></router-view>
   </div>
 </template>
 
