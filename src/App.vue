@@ -20,15 +20,15 @@ onMounted(() => {
 
 <template>
   <div class="box">
-    <Hello />
-    <h2>test sass</h2>
+    <!-- <Hello /> -->
+    <!-- <h2>test sass</h2> -->
     <router-view></router-view>
   </div>
 </template>
 
 <style scoped lang="scss">
 .box {
-  border: 2px solid greenyellow;
+  // border: 2px solid greenyellow;
 }
 
 div {

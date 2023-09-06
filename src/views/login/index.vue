@@ -4,7 +4,7 @@
       <!-- :xs 屏幕宽度调整到 小于 798px , 占位栅格宽度变为 0 份, 表单为全部 24 份 -->
       <el-col :span="12" :offset="0" :xs="0"></el-col>
       <el-col :span="12" :offset="0" :xs="24">
-        <el-form class="login-form" ref="form" :inline="false" size="normal">
+        <el-form class="login-form" ref="form" :inline="false" size="default">
           <h1>Hello</h1>
           <h2>element plus demo</h2>
 
@@ -27,8 +27,8 @@
           </el-form-item>
 
           <el-form-item>
-            <el-button type="primary">登录</el-button>
-            <el-button>取消</el-button>
+            <el-button type="primary" @click="handleClickLogin">登录</el-button>
+            <!-- <el-button>取消</el-button> -->
           </el-form-item>
         </el-form>
       </el-col>
@@ -39,12 +39,31 @@
 <script setup lang="ts">
 import { User, Lock } from '@element-plus/icons-vue'
 import { reactive } from 'vue'
+import useUserStore from '@/store/modules/user'
+import { useRouter } from 'vue-router'
+import { ElNotification } from 'element-plus'
 
 const loginForm = reactive({
   username: 'admin',
   password: 'atguigu123',
   verifyCode: '1234',
 })
+
+const userStore = useUserStore()
+const router = useRouter()
+
+const handleClickLogin = async () => {
+  try {
+    await userStore.login(loginForm)
+    router.push('/')
+  } catch (error) {
+    const err = error as Error
+    ElNotification({
+      type: 'error',
+      message: err.message,
+    })
+  }
+}
 </script>
 
 <style scoped lang="scss">

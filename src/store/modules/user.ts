@@ -17,7 +17,6 @@ const useUserStore = defineStore('user', {
         this.token = resp.data as string
         return 'ok'
       }
-
       return Promise.reject(new Error(resp.data))
     },
   },
