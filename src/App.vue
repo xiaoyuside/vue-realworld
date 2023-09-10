@@ -33,7 +33,7 @@ onMounted(() => {
 
 div {
   h2 {
-    color: $color;
+    color: $base-color;
   }
 }
 </style>

@@ -45,7 +45,7 @@ import { ElNotification } from 'element-plus'
 
 const loginForm = reactive({
   username: 'admin',
-  password: 'atguigu123',
+  password: '123456',
   verifyCode: '1234',
 })
 
@@ -55,8 +55,16 @@ const router = useRouter()
 const handleClickLogin = async () => {
   try {
     await userStore.login(loginForm)
+
     router.push('/')
+
+    ElNotification({
+      type: 'success',
+      title: 'Hi, login success',
+      message: 'welcome back.',
+    })
   } catch (error) {
+    debugger
     const err = error as Error
     ElNotification({
       type: 'error',

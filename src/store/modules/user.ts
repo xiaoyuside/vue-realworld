@@ -15,9 +15,9 @@ const useUserStore = defineStore('user', {
 
       if (resp.code === 200) {
         this.token = resp.data as string
-        return 'ok'
+        return Promise.resolve()
       }
-      return Promise.reject(new Error(resp.data))
+      return Promise.reject(new Error(resp.message as string))
     },
   },
   getters: {},

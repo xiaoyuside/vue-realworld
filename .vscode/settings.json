@@ -1,5 +1,5 @@
 {
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "stylelint.enable": true,
   "stylelint.validate": ["css", "less", "scss", "sass", "html", "vue"],
   "editor.codeActionsOnSave": {

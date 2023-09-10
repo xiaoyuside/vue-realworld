@@ -1,3 +1,4 @@
+// 常量路由
 export const constantRoute = [
   {
     path: '/login',
@@ -8,28 +9,28 @@ export const constantRoute = [
       hidden: true,
     },
   },
-  // {
-  //   path: '/',
-  //   component: () => import('@/layout/index.vue'),
-  //   name: 'layout',
-  //   meta: {
-  //     title: '',
-  //     hidden: false,
-  //     icon: '',
-  //   },
-  //   redirect: '/home',
-  //   children: [
-  //     {
-  //       path: '/home',
-  //       component: () => import('@/views/home/index.vue'),
-  //       meta: {
-  //         title: '首页',
-  //         hidden: false,
-  //         icon: 'HomeFilled',
-  //       },
-  //     },
-  //   ],
-  // },
+  {
+    path: '/',
+    component: () => import('@/layout/index.vue'),
+    name: 'layout',
+    meta: {
+      title: '',
+      hidden: false,
+      icon: '',
+    },
+    // redirect: '/home',
+    // children: [
+    //   {
+    //     path: '/home',
+    //     component: () => import('@/views/home/index.vue'),
+    //     meta: {
+    //       title: '首页',
+    //       hidden: false,
+    //       icon: 'HomeFilled',
+    //     },
+    //   },
+    // ],
+  },
   // {
   //   path: '/screen',
   //   component: () => import('@/views/screen/index.vue'),

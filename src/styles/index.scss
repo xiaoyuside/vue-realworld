@@ -1,1 +1,18 @@
-@import 'reset'
+@import 'reset';
+
+// 配置滚动槽样式
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: $base-slider-color;
+}
+
+
+// 滚动滑块样式
+::-webkit-scrollbar-thumb {
+    width: 10px;
+    background-color: $base-color;
+    border-radius: 10px;
+}
